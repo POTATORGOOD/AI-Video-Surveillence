@@ -1,5 +1,4 @@
-video = "";
-status = "";
+status1 = "";
 objects = [];
 
 function setup() {
@@ -9,17 +8,17 @@ function setup() {
 }
 
 function preload() {
-    video = createVideo('https://www.youtube.com/watch?v=LQudaATqgqY');
+    video = createVideo('video.mp4');
     
 }
 
 function draw() {
     image(video, 0, 0, 480, 380);
 
-    if (status != "") {
+    if (status1 != "") {
         objectDetector.detect(video, gotResult);
 
-        for (i = 0; i < object.length; i++) {
+        for (i = 0; i < objects.length; i++) {
             document.getElementById("status").innerHTML = "Status : Objects Detected";
             document.getElementById("number_of_objects").innerHTML = "Number of Objects : " + objects.length;
 
@@ -48,7 +47,7 @@ function start() {
 
 function modelLoaded() {
     console.log("Model Loaded");
-    status = true;
+    status1 = true;
     video.loop();
     video.speed(1);
     video.volume(0);
